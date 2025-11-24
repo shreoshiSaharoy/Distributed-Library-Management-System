@@ -13,7 +13,12 @@ This Library portal mainly has the following features:
 7. User-friendly and easy to read web pages.
 
 ## System Requirements 
-Frameworks used: Postgresql (version 14), Djaango
-Operating System: Linux-Ubuntu
-Python packages: django, pycopgy2-binary
+1. Frameworks used: Postgresql (version 14), Djaango
+2. Operating System: Linux-Ubuntu (2 systems)
+3. Python packages: django, pycopgy2-binary
+
+## Postgres Configurations
+
+
+
 
