@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard — LibArray{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Admin Dashboard</h2>
+  <p class="muted">Signed in as: <strong>{{ admin }}</strong></p>
+
+  <div style="margin-top:12px;margin-bottom:18px;">
+    <a class="small-link" href="{% url 'admin_add_user' %}">+ Add user</a> &nbsp;|&nbsp;
+    <a class="small-link" href="{% url 'upload_book' %}">+ Upload book</a> &nbsp;|&nbsp;
+    <a class="small-link" href="{% url 'search' %}">Go to search</a>
+  </div>
+
+  <h3>All Registered Users</h3>
+  {% if users %}
+    <table>
+      <thead><tr><th>Institute ID</th><th>Email</th><th>Name</th><th>Nature</th><th>Created</th><th></th></tr></thead>
+      <tbody>
+        {% for u in users %}
+          {# u expected like: (institute_id, institute_mail, name, nature, created_at) #}
+        <tr>
+          <td>{{ u.0 }}</td>
+          <td>{{ u.1 }}</td>
+          <td>{{ u.2 }}</td>
+          <td class="muted">{{ u.3 }}</td>
+          <td class="muted">{{ u.4 }}</td>
+          <td>
+            <a href="{% url 'admin_remove_user' u.0 %}" onclick="return confirm('Remove user {{ u.1 }}?');">Remove</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="muted">No users yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

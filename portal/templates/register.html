@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Register — LibArray{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Student Registration</h2>
+  <p class="muted">Create your account using your institute ID and official mail.</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <label>Institute ID (unique)</label>
+    <input type="text" name="institute_id" required placeholder="e.g. 2021CS101" value="{{ request.POST.institute_id|default:'' }}">
+
+    <label>Institute Email</label>
+    <input type="email" name="institute_mail" required placeholder="you@institute.edu" value="{{ request.POST.institute_mail|default:'' }}">
+
+    <label>Full Name</label>
+    <input type="text" name="name" required placeholder="Your name" value="{{ request.POST.name|default:'' }}">
+
+    <label>Nature</label>
+    <select name="nature" required>
+      <option value="bachelors">Bachelors</option>
+      <option value="masters">Masters</option>
+      <option value="phd">PhD</option>
+      <option value="faculty">Faculty</option>
+    </select>
+
+    <label>Password</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <p class="muted" style="margin-top:12px;">
+    After registration you will be redirected to login. No admin approval required.
+  </p>
+</div>
+{% endblock %}

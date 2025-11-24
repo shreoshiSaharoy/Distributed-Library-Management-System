@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Search — LibArray{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Search Books</h2>
+  <form method="get" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+    <div style="flex:1;min-width:220px;">
+      <label>Book Name (required)</label>
+      <input type="text" name="book_name" required placeholder="Enter book name" value="{{ request.GET.book_name|default:'' }}">
+    </div>
+
+    <div style="width:160px;">
+      <label>Branch (optional)</label>
+      <input type="text" name="branch" placeholder="e.g. CSE" value="{{ request.GET.branch|default:'' }}">
+    </div>
+
+    <div style="width:160px;">
+      <label>Genre / Author (optional)</label>
+      <input type="text" name="extra" placeholder="genre or author (optional)">
+    </div>
+
+    <div style="flex-basis:100%;"></div>
+
+    <button type="submit">Search</button>
+  </form>
+</div>
+
+<div class="card">
+  <h3>Results</h3>
+
+  {% if books %}
+    <table>
+      <thead>
+        <tr><th>Title</th><th>Authors</th><th>Genre</th><th>Branch</th><th>Uploaded By</th><th></th></tr>
+      </thead>
+      <tbody>
+        {% for b in books %}
+        {# We expect raw SQL returned tuples like (book_id, book_name, authors, genre, branch, uploaded_by) #}
+        <tr>
+          <td><strong>{{ b.1 }}</strong></td>
+          <td class="muted">{{ b.2|default:'—' }}</td>
+          <td class="muted">{{ b.3|default:'—' }}</td>
+          <td class="muted">{{ b.4|default:'—' }}</td>
+          <td class="muted">{{ b.5|default:'—' }}</td>
+          <td class="actions">
+            <a href="{% url 'download' b.0 %}">Download</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="muted">No books found. If you're an admin you can <a href="{% url 'admin_login' %}">upload</a> new books.</p>
+  {% endif %}
+</div>
+{% endblock %}

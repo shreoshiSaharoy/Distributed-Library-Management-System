@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Upload Successful — LibArray{% endblock %}
+{% block content %}
+<div class="card" style="text-align:center;">
+  <h2>Book uploaded</h2>
+  <p class="muted">The book has been stored. Depending on publication/subscription, it will be visible on the other site when replication occurs.</p>
+  <p><a class="small-link" href="{% url 'admin_dashboard' %}">Back to admin dashboard</a></p>
+</div>
+{% endblock %}

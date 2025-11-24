@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Admin Login — LibArray{% endblock %}
+{% block content %}
+<div class="card" style="max-width:600px;">
+  <h2>Admin Login</h2>
+  <p class="muted">Only admins may access the admin dashboard, add users, or upload books.</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <label>Email</label>
+    <input type="email" name="email" required value="{{ request.POST.email|default:'' }}">
+    <label>Password</label>
+    <input type="password" name="password" required>
+    <button type="submit">Sign In</button>
+  </form>
+</div>
+{% endblock %}

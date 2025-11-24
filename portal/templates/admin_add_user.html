@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Add User — Admin — LibArray{% endblock %}
+{% block content %}
+<div class="card" style="max-width:680px;">
+  <h2>Add User (Admin)</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    <label>Institute ID</label>
+    <input type="text" name="institute_id" required>
+
+    <label>Institute Email</label>
+    <input type="email" name="institute_mail" required>
+
+    <label>Full Name</label>
+    <input type="text" name="name" required>
+
+    <label>Nature</label>
+    <select name="nature" required>
+      <option value="bachelors">Bachelors</option>
+      <option value="masters">Masters</option>
+      <option value="phd">PhD</option>
+      <option value="faculty">Faculty</option>
+    </select>
+
+    <label>Password</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Create User</button>
+  </form>
+</div>
+{% endblock %}

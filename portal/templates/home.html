@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Home — Library{% endblock %}
+
+{% block content %}
+<div class="card" style="text-align:center; padding:40px;">
+    <h2>Welcome to Library Distributed Library Portal</h2>
+    <p class="muted" style="margin-bottom:25px;">
+        Search, download, and access books using a distributed & replicated backend database system.
+    </p>
+
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+        <a href="{% url 'register' %}">
+            <button>Register</button>
+        </a>
+
+        <a href="{% url 'login' %}">
+            <button>Login</button>
+        </a>
+
+        <a href="{% url 'admin_login' %}">
+            <button>Admin</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

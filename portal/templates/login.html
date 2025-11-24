@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Login — LibArray{% endblock %}
+{% block content %}
+<div class="card">
+  <h2>Student Login</h2>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    <label>Institute Email</label>
+    <input type="email" name="institute_mail" required>
+
+    <label>Password</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <p class="muted" style="margin-top:12px;">
+    Don't have an account? <a class="small-link" href="{% url 'register' %}">Register here</a>.
+  </p>
+</div>
+{% endblock %}

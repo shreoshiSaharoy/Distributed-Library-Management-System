@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Upload Book — Admin — LibArray{% endblock %}
+{% block content %}
+<div class="card" style="max-width:700px;">
+  <h2>Upload Book (Admin)</h2>
+  <p class="muted">Only admins can upload PDFs. Choose the branch carefully — this is used for fragmentation.</p>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Book Name</label>
+    <input type="text" name="book_name" required>
+
+    <label>Authors (comma separated)</label>
+    <input type="text" name="authors" placeholder="Author One, Author Two">
+
+    <label>Genre</label>
+    <input type="text" name="genre" placeholder="e.g. Algorithms">
+
+    <label>Branch</label>
+    <input type="text" name="branch" required placeholder="CSE or EEE">
+
+    <label>PDF File</label>
+    <input type="file" name="pdf" accept="application/pdf" required>
+
+    <button type="submit">Upload Book</button>
+  </form>
+</div>
+{% endblock %}
