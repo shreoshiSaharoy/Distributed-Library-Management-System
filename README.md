@@ -153,7 +153,7 @@ Then connect to the librarydb databse and execute the following commands:
 14. GRANT UPDATE, DELETE ON TABLE public.downloads TO "replica";
 
 
-#### Either at site1 or site2(only 1) run the sql query - INSERT INTO admins (email, name, password_hash) VALUES ('<your admin email>', 'Admin', crypt('<your admin password>', gen_salt('bf'))) ON CONFLICT (email) DO NOTHING;
+#### * Either at site1 or site2(only 1) run the sql query - INSERT INTO admins (email, name, password_hash) VALUES ('<your admin email>', 'Admin', crypt('<your admin password>', gen_salt('bf'))) ON CONFLICT (email) DO NOTHING;
 
 
 
