@@ -1,4 +1,3 @@
-# libarray/middleware.py
 import time
 from django.db import connection
 

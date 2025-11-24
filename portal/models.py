@@ -60,5 +60,5 @@ class BookView(models.Model):
     uploaded_at = models.DateTimeField()
     fragment = models.CharField(max_length=16)
     class Meta:
-        db_table = 'books'   # maps to the view
+        db_table = 'books'  
         managed = False
