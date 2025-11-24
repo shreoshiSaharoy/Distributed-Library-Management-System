@@ -37,7 +37,9 @@ In the postgres shell, run the following:
 Now run the command:
 * sudo -u postgres psql -d librarydb -f schema.sql
 
-Then connect to the librarydb databse and execute the following commands:
+#### **** These above ones executed in both systems or sites ****
+
+Then connect to the librarydb database and execute the following commands:
 
 ### At Site 1:
 
