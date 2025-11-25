@@ -30,7 +30,7 @@ Enter into the psotgres shell using the command:
 * sudo -u postgres psql
 
 In the postgres shell, run the following:
-1. CREATE ROLE replica WITH REPLICATION LOGIN PASSWORD '<your replica user password>';
+1. CREATE ROLE replica WITH REPLICATION LOGIN PASSWORD 'your replica user password';
 2. CREATE DATABASE librarydb;
 3. exit the shell
 
